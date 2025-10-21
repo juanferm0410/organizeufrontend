@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import { AppMenu } from '../components/menu/AppMenu.js';
 import { Home } from '../modules/home/Home.js';
 import { Task } from '../modules/task/Task.js'
-import { AboutUs } from '../modules/core/aboutus/AboutUs.js';
+import { AboutUs } from '../modules/core/abouts/AboutUs.js';
 import { Contact } from '../modules/core/contact/Contact.js';
 
 export const DashboardRoutes = () => {
