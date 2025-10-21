@@ -1,9 +1,9 @@
 // import logo from './logo.svg';
 
 import { useEffect, useReducer } from 'react';
-import { AuthContext } from './auth/authContext.js';
-import { authReducer } from './auth/authReducer.js';
-import { AppRouter } from './routers/AppRouter';
+import { AuthContext } from './services/auth/authContext.js';
+import { authReducer } from './services/auth/authReducer.js';
+import { AppRouter } from './routers/AppRouter.js';
 import './App.scss';
 
 const init = () => { return JSON.parse(sessionStorage.getItem('user') ) || { logged: false}; }
