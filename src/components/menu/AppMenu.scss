@@ -1,44 +1,62 @@
-@import '../../assets/styles/scss/mixins/colors';
+@import '../../assets/styles/colors';
+@import '../../assets/styles/screen';
 
 /* === Estilos base del menú === */
+.bm-menu-wrap {
+  width: 40% !important;
+
+  @include screen-md {
+    width: 60% !important;
+  }
+  @include screen-sm {
+    width: 90% !important;
+  }
+}
+
+/* === Botón Hamburguesa === */
 .bm-burger-button {
   position: fixed;
-  width: 28px;
-  height: 22px;
-  top: 40px;
+  width: 1.125rem;
+  height: 0.8rem;
+  top: 3.5vh;
   left: 25px;
+  filter: drop-shadow(0px 1px 0px $white-color);
+
+  @include screen-md {
+    left: 20px;
+  }
+  @include screen-sm {
+    left: 10px;
+  }
+
+  &:hover {
+    color: $primary-color;
+    transform: translateY(-2px);
+  }
 }
 
 /* color del ícono hamburguesa */
 .bm-burger-bars {
-  background: #fff;
+  background: $black-color;
+  height: 12.5% !important;
+  border-radius: 20px;
 }
 
-/* efecto al pasar el mouse */
-.bm-burger-bars-hover {
-  background: #000;
-}
-
-/* boton de cerrar el menu*/
-#react-burger-cross-btn {
-    color: $bg-color;
-}
-
-/* fondo del menú */
-.bm-menu {
-  background: #cccccc;
-  padding: 2.5em 1.5em 0;
-  font-size: 1.2em;
-}
-
-/* cross (botón X de cerrar) */
+/* Oculta la X nativa de react-burger-menu */
 .bm-cross-button {
-  height: 24px;
-  width: 24px;
+  display: none !important;
+}
+.bm-cross {
+  background: $black-color;
 }
 
-.bm-cross {
-  background: #fff;
+/* === fondo del menú === */
+.bm-menu {
+  background: $lightgray-color;
+  padding: 1.5em 1.5em;
+  font-size: 1.2em;
+  position: relative;
+  top: 6px; // Altura de la linea horizontal del header
 }
 
 /* overlay del fondo oscuro */
@@ -46,24 +64,65 @@
   background: rgba(0, 0, 0, 0.4);
 }
 
-/* linea horizontal*/
+/* header interno: título + botón X propio */
+.bm-header {
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.bm-title {
+  font-family: 'Itim', cursive;
+  color: $black-color;
+  text-shadow: 0px 1px 0px $white-color;
+}
+
+.bm-close {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+  padding: 0;
+  color: $black-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0px 1px 0px $white-color);
+
+  &:hover {
+    color: $bg-color;
+  }
+}
+
+/* linea horizontal */
 .bm-hr {
-    border: 1px solid $bg-color;
+  border: 1px solid $bg-color;
+  margin: 0;
+  margin-bottom: 1rem;
 }
 
 /* items del menú */
 .menu-item {
-  display: flex;
+  display: flex !important;
   align-items: center;
   gap: 10px;
   color: $black-color;
   padding: 12px 0;
   text-decoration: none;
+  font-size: 1.1rem;
   font-family: 'Itim', cursive;
+  text-shadow: 0px 1px 0px $white-color;
   transition: all 0.3s ease;
+  background: transparent;
+  border: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
 }
 
 .menu-item:hover {
-  color: $bg-color;
+  color: $primary-color;
   transform: translateX(5px);
 }
